@@ -18,12 +18,12 @@ resource "aws_iam_role" "ecr_readOnly_role" {
 EOF
 
   tags = {
-      Name = "ecr_readOnly_role"
+      Name = "ecr_readOnly_role_${terraform.workspace}"
   }
 }
 
 resource "aws_iam_instance_profile" "ecr_readOnly_profile" {
-  name = "ecr_readOnly_profile"
+  name = "ecr_readOnly_profile_${terraform.workspace}"
   role = "${aws_iam_role.ecr_readOnly_role.name}"
 }
 
