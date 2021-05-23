@@ -96,6 +96,6 @@ resource "aws_instance" "web" {
   }
 
   tags = {
-    Name = "nginx-hackaton-${terraform.workspace}"
+    Name = "${format("${terraform.workspace}-nginx-hackaton-%03d", count.index + 1)}"
   }
 }
